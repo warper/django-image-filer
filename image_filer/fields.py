@@ -7,6 +7,7 @@ from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 from django.core.urlresolvers import reverse
 from django.utils.safestring import mark_safe
 from django.conf import settings
+from image_filer import context_processors
 
 class ImageFilerImageWidget(ForeignKeyRawIdWidget):
     choices = None
@@ -55,7 +56,7 @@ class ImageFilerImageWidget(ForeignKeyRawIdWidget):
         return obj
     
     class Media:
-        js = ('image_filer/js/image_widget_thumbnail.js',)
+        js = (context_processors.media(None)['IMAGE_FILER_MEDIA_URL']+'js/image_widget_thumbnail.js')
 
 class ImageFilerImageFormField(forms.ModelChoiceField):
     widget = ImageFilerImageWidget 

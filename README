@@ -12,7 +12,10 @@ for cms integration:
 
 Setup
 - add 'image_filer' to INSTALLED_APPS
-- make image_filer/media/image_filer available in MEDIA_ROOT
+- make the directory 'image_filer' (found in image_filer/media/') available in MEDIA_ROOT
+- optional: configure IMAGE_FILER_MEDIA_URL in your project's settings.py to the URL
+  where image_filer-media can be found (usually MEDIA_URL+'image_filer/' which is the
+  default)
 
 
 To use the example project virtualenv and pip can be used to setup a test environment:
